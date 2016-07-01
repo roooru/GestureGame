@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.Random;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
+import android.content.Intent;
 import android.widget.Toast;
 
 
@@ -19,6 +20,7 @@ public class SubActivity extends Activity  {
     private TextView textView;
     private boolean flag = false;
     private TextView timerText;
+    MediaPlayer mp = null;
     Gesturewords gw = new Gesturewords();
 
     Random rnd = new Random();
@@ -32,6 +34,8 @@ public class SubActivity extends Activity  {
         timerText.setText("0:00.000");
 
         final CountDown countDown = new CountDown(30000, 100);
+        //音楽設定
+        mp = MediaPlayer.create(this, R.raw.fail);
         //ボタンの設定
         Button sendButton = (Button) findViewById(R.id.return_button);
         //textViewの設定
@@ -68,6 +72,13 @@ public class SubActivity extends Activity  {
         public void onFinish() {
             // 完了
             timerText.setText("0:00.000");
+            //音楽鳴らす
+            mp.start();
+            //次の画面に
+            Intent intent = new Intent(SubActivity.this, FinishActivity.class);
+            startActivity(intent);
+            /*Intent intent = new Intent(getApplication(), FinishActivity.class);
+            startActivity(intent);*/
         }
 
         // インターバルで呼ばれる
