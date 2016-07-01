@@ -10,11 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.Random;
+import android.media.MediaPlayer;
+import android.os.CountDownTimer;
+import android.widget.Toast;
 
 
 public class SubActivity extends Activity  {
     private TextView textView;
     private boolean flag = false;
+    private TextView timerText;
     Gesturewords gw = new Gesturewords();
 
     Random rnd = new Random();
@@ -23,8 +27,11 @@ public class SubActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
+        //タイマーの
+        timerText = (TextView)findViewById(R.id.timer);
+        timerText.setText("0:00.000");
 
-
+        final CountDown countDown = new CountDown(30000, 100);
         //ボタンの設定
         Button sendButton = (Button) findViewById(R.id.return_button);
         //textViewの設定
@@ -33,6 +40,9 @@ public class SubActivity extends Activity  {
             @Override
             public void onClick(View v) {
                // finish();
+                // 開始
+                countDown.start();
+                //timerText.setText("0:00.000");
                 if(flag) {
                     int r = rnd.nextInt(gw.words.size());
                     textView.setText(gw.words.get(r));
@@ -46,4 +56,30 @@ public class SubActivity extends Activity  {
             }
         });
     }
+    //カウントダウンしている
+    class CountDown  extends CountDownTimer {
+
+
+        public CountDown(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onFinish() {
+            // 完了
+            timerText.setText("0:00.000");
+        }
+
+        // インターバルで呼ばれる
+        @Override
+        public void onTick(long millisUntilFinished) {
+            // 残り時間を分、秒、ミリ秒に分割
+            long mm = millisUntilFinished / 1000 / 60;
+            long ss = millisUntilFinished / 1000 % 60;
+            long ms = millisUntilFinished - ss * 1000 - mm * 1000 * 60;
+
+            timerText.setText(String.format("%1$02d:%2$02d.%3$03d", mm, ss, ms));
+        }
+    }
+
 }
