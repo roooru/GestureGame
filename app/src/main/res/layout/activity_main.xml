@@ -8,23 +8,38 @@
     tools:context="com.example.miki.gesturegame.MainActivity">
 
     <TextView
-        android:text="Main Activity"
-        android:textSize="30sp"
+        android:text="ジェスチャーゲーム"
+        android:textSize="35sp"
         android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:id="@+id/textView" />
+        android:layout_width="339dp"
+        android:layout_height="40dp"
+        android:id="@+id/textView"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@+id/activity_main"
+        android:layout_marginTop="177dp"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/send_button"
-        android:text="move"
-        android:textSize="30sp"
+        android:text="START"
+        android:textSize="40sp"
         android:layout_margin="20dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="713dp"
-        tools:layout_editor_absoluteX="27dp" />
+        android:layout_width="359dp"
+        android:layout_height="61dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        android:layout_marginBottom="184dp"
+        tools:layout_constraintBottom_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
