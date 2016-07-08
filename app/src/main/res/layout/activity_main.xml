@@ -5,16 +5,16 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3EC1D3"
+    android:background="#00B8A9"
     tools:context="com.example.miki.gesturegame.MainActivity">
 
     <TextView
         android:text="ジェスチャーゲーム"
-        android:textSize="50sp"
+        android:textSize="80sp"
         android:layout_margin="10dp"
-        android:layout_width="470dp"
-        android:layout_height="350dp"
-        android:textColor="#F6F7D7"
+        android:layout_width="750dp"
+        android:layout_height="319dp"
+        android:textColor="#FFDE7D"
         android:id="@+id/textView"
         app:layout_constraintLeft_toLeftOf="@+id/activity_main"
         android:layout_marginStart="16dp"

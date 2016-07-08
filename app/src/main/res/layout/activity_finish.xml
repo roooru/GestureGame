@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#3EC1D3"
+    android:background="#00B8A9"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -9,7 +9,7 @@
     <TextView
         android:gravity="center_horizontal"
         android:text="ゲームオーバー"
-        android:textColor="#FF165D"
+        android:textColor="#F6416C"
         android:textSize="80sp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
 
         <TextView
             android:gravity="left"
-            android:textColor="#F6F7D7"
+            android:textColor="#F8F3D4"
             android:text="個正解しました！！！"
             android:textSize="40sp"
             android:layout_margin="10dp"
