@@ -22,39 +22,67 @@ public class SubActivity extends Activity  {
     private TextView timerText;
     MediaPlayer mp = null;
     Gesturewords gw = new Gesturewords();
+    Randomtime rt = new Randomtime();
+    Button sendButton;
 
     Random rnd = new Random();
+    int count = 0;
+    int time;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
+
+        Intent intent = getIntent();
+        time = intent.getIntExtra("TIME",0);
+
         //タイマーの
         timerText = (TextView)findViewById(R.id.timer);
         timerText.setText("0:00.000");
 
-        final CountDown countDown = new CountDown(30000, 100);
+        int s = rnd.nextInt(rt.time.size());
+         //final CountDown countDown = new CountDown(rt.time.get(s)*1000, 100);
+        //final CountDown countDown = new CountDown(30000, 100);
+        final CountDown countDown = new CountDown(time*1000, 100);
+        countDown.start();
         //音楽設定
         mp = MediaPlayer.create(this, R.raw.fail);
         //ボタンの設定
-        Button sendButton = (Button) findViewById(R.id.return_button);
+        sendButton = (Button) findViewById(R.id.return_button);
         //textViewの設定
         textView = (TextView) findViewById(R.id.textView);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // finish();
+
                 // 開始
-                countDown.start();
+               // countDown.start();
                 //timerText.setText("0:00.000");
+                sendButton.setText("次の問題へ");
+
                 if(flag) {
+
                     int r = rnd.nextInt(gw.words.size());
                     textView.setText(gw.words.get(r));
+                    count++;
+
+
                     flag = false;
+
+
+
                 }else{
+
                     int r = rnd.nextInt(gw.words.size());
                     textView.setText(gw.words.get(r));
+                    count++;
+
                     flag = true;
+
+
                 }
 
             }
@@ -68,6 +96,7 @@ public class SubActivity extends Activity  {
             super(millisInFuture, countDownInterval);
         }
 
+        //カウントダウン完了後に呼ばれる
         @Override
         public void onFinish() {
             // 完了
@@ -76,7 +105,9 @@ public class SubActivity extends Activity  {
             mp.start();
             //次の画面に
             Intent intent = new Intent(SubActivity.this, FinishActivity.class);
+            intent.putExtra("COUNT",count);
             startActivity(intent);
+
             /*Intent intent = new Intent(getApplication(), FinishActivity.class);
             startActivity(intent);*/
         }

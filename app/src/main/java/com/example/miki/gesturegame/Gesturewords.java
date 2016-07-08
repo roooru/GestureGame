@@ -17,6 +17,11 @@ public class Gesturewords {
         words.add("東京スカイツリー");
         words.add("田植え");
         words.add("相撲");
+        words.add("スマホの画面が割れた人");
+        words.add("チャーハンを作っている人");
+        words.add("ローラ");
+        words.add("ペンギン");
+
     }
     /*public ArrayList<String> setWords(ArrayList<String> words){
         this.words = words;

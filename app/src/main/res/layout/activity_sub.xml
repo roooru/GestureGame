@@ -2,22 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#3EC1D3"
+    android:weightSum="1">
+
     <TextView
-        android:text="Sub Activity"
-        android:textSize="30sp"
-        android:layout_margin="10dp"
+        android:id="@+id/timer"
+        android:layout_margin="20dp"
+        android:textSize="60sp"
+        android:textColor="#FF165D"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="サル"
+        android:textSize="50sp"
+        android:layout_margin="10dp"
+        android:textColor="#F6F7D7"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:layout_weight="0.63" />
 
     <Button
         android:id="@+id/return_button"
-        android:text="return"
+        android:text="次の問題へ"
+        android:textColor="#02010c"
         android:textSize="30sp"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05" />
 
 
 </LinearLayout>
